@@ -45,10 +45,12 @@ const convertCsvToJson = async (csvFilePath) => {
     // Generate the outcome JSON file.
     fs.writeFileSync(path.join(__dirname, fileName), JSON.stringify(jsonArray, null, 2))
     console.info('Convert CSV To JSON is done in file "%s".', fileName)
+    process.exit(0)
   }
   catch (err) {
     console.error('It was an issue converting the CSV file: "%s".', csvFilePath)
     console.error(err)
+    process.exit(1)
   }
 }
 
